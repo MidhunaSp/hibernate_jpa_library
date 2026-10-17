@@ -13,10 +13,12 @@ public class AuthorController {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         AuthorService authorService = context.getBean(AuthorService.class);
 
-        authorService.insertAuthor("Dan Brown", "USA");
+        authorService.insertAuthor("J.K. Rowling", "UK");
         authorService.insertAuthor("J.R.R. Tolkien", "UK");
+        authorService.insertAuthor("Dan Brown", "USA");
         authorService.insertAuthor("Stephen Hawking", "UK");
         authorService.insertAuthor("George Orwell", "UK");
+        authorService.insertAuthor("Yuval Noah Harari", "Israel");
 
         // findById
         Author author = authorService.findById(4L);

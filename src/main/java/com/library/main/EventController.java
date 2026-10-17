@@ -27,8 +27,7 @@ public class EventController {
         memberService.insertMember("Kavin", "kavin@gmail.com", MembershipType.STANDARD);
 
         // add an event
-        eventService.insertEvent("Dan Brown Author Talk",
-                Instant.now().plus(7, ChronoUnit.DAYS), EventType.AUTHOR_TALK);
+        eventService.insertEvent("Dan Brown Author Talk", Instant.now(), EventType.AUTHOR_TALK);
 
         // register members for event 1
         registrationService.registerMember(1L, 1L);
