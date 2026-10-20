@@ -23,7 +23,8 @@ public class LibraryEventRepository {
     }
 
     public List<LibraryEvent> findAll() {
-        return entityManager.createQuery("select e from LibraryEvent e", LibraryEvent.class)
+        String jpql = "select e from LibraryEvent e";
+        return entityManager.createQuery(jpql, LibraryEvent.class)
                 .getResultList();
     }
 }

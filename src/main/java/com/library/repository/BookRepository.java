@@ -15,23 +15,24 @@ public class BookRepository {
     private EntityManager entityManager;
 
     // task 1: save(book) -> insert
-    public void save(Book book){
+    public void save(Book book) {
         entityManager.persist(book);
     }
 
     // task 1: findById(id) -> read single Book by its id
-    public Optional<Book> findById(Long id){
+    public Optional<Book> findById(Long id) {
         return Optional.ofNullable(entityManager.find(Book.class, id));
     }
 
     // task 1: findAll() -> read all books with Author and Member info
-    public List<Book> findAll(){
+    public List<Book> findAll() {
+        // left join because borrowedBy is null for books that are not borrowed
         String jpql = """
-                select b
-                from Book b
-                join fetch b.author
-                left join fetch b.borrowedBy
-                """;
+                    select b
+                    from Book b
+                    join b.author a
+                    left join b.borrowedBy m
+                    """;
         return entityManager.createQuery(jpql, Book.class)
                 .getResultList();
     }

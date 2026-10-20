@@ -5,8 +5,5 @@ public enum Genre {
     NON_FICTION,
     SCIENCE,
     HISTORY,
-    BIOGRAPHY,
-    FANTASY,
-    THRILLER,
-    DYSTOPIAN
+    BIOGRAPHY
 }

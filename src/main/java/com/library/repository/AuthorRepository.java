@@ -14,16 +14,20 @@ public class AuthorRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
+    // task 1: save -> insert a member
     public void insertAuthor(Author author) {
         entityManager.persist(author);
     }
 
-    public Optional<Author> findById(Long id){
+    // task 1: findById -> read a single member by id
+    public Optional<Author> findById(Long id) {
         return Optional.ofNullable(entityManager.find(Author.class, id));
     }
 
-
+    // task 1: findAll -> read all members
     public List<Author> findAll() {
-        return entityManager.createQuery("select a from Author a", Author.class).getResultList();
+        String jpql = "select a from Author a";
+        return entityManager.createQuery(jpql, Author.class)
+                .getResultList();
     }
 }

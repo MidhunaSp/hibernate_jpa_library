@@ -10,21 +10,24 @@ import java.util.Optional;
 
 @Repository
 public class MemberRepository {
+
     @PersistenceContext
     private EntityManager entityManager;
 
+    // task 1: save -> insert a member
     public void insertMember(Member member) {
         entityManager.persist(member);
     }
 
+    // task 1: findById -> read a single member by id and validate memberId
     public Optional<Member> findById(Long id) {
         return Optional.ofNullable(entityManager.find(Member.class, id));
     }
 
-    // task 1
+    // task 1: findAll -> read all members
     public List<Member> findAll() {
-        return entityManager
-                .createQuery("select m from Member m", Member.class)
+        String jpql = "select m from Member m";
+        return entityManager.createQuery(jpql, Member.class)
                 .getResultList();
     }
 }

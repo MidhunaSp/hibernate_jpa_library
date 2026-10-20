@@ -22,7 +22,7 @@ public class AppConfig {
     @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(
-                "jdbc:mysql://localhost:3306/library_dB",
+                "jdbc:mysql://localhost:3306/library_db",
                 "root",
                 "Midhu@2005"
         );

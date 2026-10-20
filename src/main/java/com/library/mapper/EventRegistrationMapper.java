@@ -1,7 +1,6 @@
 package com.library.mapper;
 
 import com.library.dto.EventRegistrationDto;
-import com.library.dto.EventRegistrationDto;
 import com.library.model.EventRegistration;
 
 public class EventRegistrationMapper {

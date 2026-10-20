@@ -6,7 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.Instant;
 
 @Entity
-@Table
+@Table(name = "event_registration")
 public class EventRegistration {
 
     @Id
